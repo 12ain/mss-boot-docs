@@ -13,6 +13,10 @@
 
 ## 已直接推进
 
+- 组织级 GitHub 安全治理
+  - `mss-boot`、`mss-boot-admin`、`mss-boot-admin-antd`、`mss-boot-docs`
+    均已开启 private vulnerability reporting，安全研究者可以通过 GitHub
+    私密通道提交漏洞报告。
 - `mss-boot`
   - 审查并合并 5 个 Dependabot PR：`#374`、`#375`、`#376`、`#377`、`#378`。
   - 合并后 main 的 `ci`、`govulncheck`、`CodeQL Advanced`、`OpenSSF Scorecard`、
@@ -50,13 +54,14 @@
 - `mss-boot-admin` 与 `mss-boot-admin-antd` 的 GitHub Community Profile 为 `100%`。
 - `mss-boot` 与 `mss-boot-docs` 当前主要缺口是 issue templates，本轮已补齐；
   合并后应重新检查 Community Profile。
-- `mss-boot` 当前 open PR 已清空。
+- `mss-boot`、`mss-boot-admin`、`mss-boot-admin-antd` 当前各有 1 个 Codex PR
+  等待 maintainer review，全部 GitHub checks 已通过。
+- `mss-boot-docs` 本轮 PR 已合并，当前无 open PR。
 
 ## 仍需 Maintainer 决策或 GitHub 设置
 
-- 在 GitHub 仓库设置中确认 `mss-boot-admin`、`mss-boot-admin-antd`、
-  `mss-boot-docs` 的 Dependabot alerts、private vulnerability reporting、
-  secret scanning 状态。
+- 在 GitHub 仓库设置中确认 Dependabot alerts、secret scanning 状态；private
+  vulnerability reporting 已在 4 个核心仓库开启。
 - 为 4 个核心仓库确定 CODEOWNERS 人员/团队，或关闭 code owner review。
 - 将 `CI`、`CodeQL`、`govulncheck`、`PR Guard`、`Docs Drift` 等设置为 required
   status checks。当前前三个核心仓有 branch protection，但 required checks 仍需
