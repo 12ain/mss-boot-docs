@@ -18,6 +18,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [Community governance sweep](./prompts/community-governance-sweep-2026-06-06.zh-CN.md)
 - [Core repositories open source hardening](./prompts/core-repos-open-source-hardening-2026-06-07.zh-CN.md)
 - [mss-boot-admin external issue upgrade](./prompts/admin-external-issue-upgrade-2026-06-07.zh-CN.md)
+- [mss-boot-admin external issue dev validation](./prompts/admin-external-issue-dev-validation-2026-06-07.zh-CN.md)
 
 ## Rules
 
