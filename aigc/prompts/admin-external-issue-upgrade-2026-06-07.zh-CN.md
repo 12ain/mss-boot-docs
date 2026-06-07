@@ -23,7 +23,8 @@
   revoke 策略、审计与前端联动。
 - `#89` 是迁移系统大功能，应先做 RFC：一期 forward SQL 脚本发现/排序/执行/版本记录，
   二期 rollback 命名、顺序、失败策略。不能混入小修 PR。
-- `#75` 混合多个 bug 和一个功能建议，仍需要拆分复现；不适合作为单个 PR 关闭。
+- `#75` 混合多个 bug 和一个功能建议；其中“删除模型后 MenuBar 残留生成菜单”
+  已能从当前代码直接确认，适合独立小 PR 修复。其余问题仍需要拆分复现。
 
 ## 已推进
 
@@ -33,12 +34,24 @@
   - `config/config.go`：绑定 `response/actions/gorm.CleanCacheFromTag`，更新/删除后按
     `gorm.cache:<table>` 清理关联缓存 key。
   - `config/query_cache_test.go`：覆盖 query cache 初始化和 tag 前缀清理。
+- 新建 PR：`mss-boot-admin#372`，标题 `fix: clean generated menus after model delete`。
+- 代码改动：
+  - `apis/model.go`：为模型删除增加 after delete hook。
+  - 删除模型后递归软删除 `/virtual/<model.path>` 菜单树。
+  - 删除这些菜单/API 路径对应的 Casbin policy，并重新加载 policy。
+  - `apis/model_test.go`：覆盖生成菜单树和 policy 被清理、无关菜单和 policy 不受影响。
+- 社区治理：
+  - `#105` 已回复进展并关联 `#371`，标签整理为 `bug`、`type/bug`、`area/backend`。
+  - `#75` 已回复进展并关联 `#372`，明确只处理其中一个可验证子问题。
+  - 为 `#126`、`#89` 创建并添加 `needs-rfc` 标签，表达需要设计/RFC 后再实现。
 
 ## 验证
 
 ```text
 go test ./config
 go test ./config ./middleware ./apis ./models
+go test ./apis
+go test ./apis ./models ./middleware
 ```
 
 ## 后续
@@ -47,4 +60,5 @@ go test ./config ./middleware ./apis ./models
   缓存配置、更新接口和读取接口。
 - `#126` 建议另开设计 issue 或 RFC，再实现后端会话表/会话撤销/审计/权限控制。
 - `#89` 建议先补迁移 RFC，不直接改运行时迁移器。
-- `#75` 继续保持 `needs-info`，等待拆分复现后逐项处理。
+- `#75` 的模型删除菜单残留由 `#372` 处理；其余子问题继续保持 `needs-info`，
+  等待拆分复现后逐项处理。
