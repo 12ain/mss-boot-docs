@@ -17,6 +17,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [mss-boot v0.7.2 and admin dependency follow-up](./prompts/mss-boot-v0.7.2-admin-dependency-update-2026-06-05.zh-CN.md)
 - [Community governance sweep](./prompts/community-governance-sweep-2026-06-06.zh-CN.md)
 - [Core repositories open source hardening](./prompts/core-repos-open-source-hardening-2026-06-07.zh-CN.md)
+- [mss-boot-admin external issue upgrade](./prompts/admin-external-issue-upgrade-2026-06-07.zh-CN.md)
 
 ## Rules
 
