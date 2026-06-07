@@ -38,8 +38,11 @@
 - 代码改动：
   - `apis/model.go`：为模型删除增加 after delete hook。
   - 删除模型后递归软删除 `/virtual/<model.path>` 菜单树。
+  - 如果仍有其他 active 模型使用相同 `path`，跳过菜单清理，避免误删共享 path
+    的仍在用菜单。
   - 删除这些菜单/API 路径对应的 Casbin policy，并重新加载 policy。
-  - `apis/model_test.go`：覆盖生成菜单树和 policy 被清理、无关菜单和 policy 不受影响。
+  - `apis/model_test.go`：覆盖生成菜单树和 policy 被清理、无关菜单和 policy 不受影响、
+    active 同 path 模型保护。
 - 社区治理：
   - `#105` 已回复进展并关联 `#371`，标签整理为 `bug`、`type/bug`、`area/backend`。
   - `#75` 已回复进展并关联 `#372`，明确只处理其中一个可验证子问题。
