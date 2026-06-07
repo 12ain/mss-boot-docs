@@ -44,9 +44,19 @@
   - `apis/model_test.go`：覆盖生成菜单树和 policy 被清理、无关菜单和 policy 不受影响、
     active 同 path 模型保护。
 - 社区治理：
-  - `#105` 已回复进展并关联 `#371`，标签整理为 `bug`、`type/bug`、`area/backend`。
+  - `#105` 已回复进展并关联 `#371`，标签整理为 `bug`、`type/bug`、`area/backend`、
+    `status/has-pr`。
   - `#75` 已回复进展并关联 `#372`，明确只处理其中一个可验证子问题。
-  - 为 `#126`、`#89` 创建并添加 `needs-rfc` 标签，表达需要设计/RFC 后再实现。
+  - 新建 RFC issue：`mss-boot-admin#373`，标题 `RFC: online sessions and force logout`。
+  - 新建 RFC issue：`mss-boot-admin#374`，标题 `RFC: SQL migration scripts and rollback`。
+  - `#126` 已用友好语气迁移到 `#373` 并关闭，关闭原因是原 issue 已被更聚焦的
+    RFC 取代。
+  - `#89` 已用友好语气迁移到 `#374` 并关闭，关闭原因是原 issue 已被更聚焦的
+    RFC 取代。
+  - `#75` 已标记 `status/has-pr`，并作为混合 issue 关闭；其中已确认的模型删除菜单
+    残留由 `#372` 处理，其余问题需要贡献者按单项重新提交可复现 issue。
+  - `#373`、`#374` 已从 `needs-triage` 移除，保留 `needs-rfc`、`help wanted` 和
+    相关 area/type 标签，表示后续需要方案讨论而不是再次分诊。
 
 ## 验证
 
@@ -57,11 +67,20 @@ go test ./apis
 go test ./apis ./models ./middleware
 ```
 
+GitHub PR 检查：
+
+- `mss-boot-admin#371`：CI、CodeQL、Docs Drift、PR Guard、govulncheck 全部通过；
+  当前阻塞点是 `REVIEW_REQUIRED`。
+- `mss-boot-admin#372`：CI、CodeQL、Docs Drift、PR Guard、govulncheck 全部通过；
+  当前阻塞点是 `REVIEW_REQUIRED`。
+
 ## 后续
 
-- PR 合并后，在 `#105` 中确认这是一期修复；如果用户仍能复现，需要补充版本、接口路径、
-  缓存配置、更新接口和读取接口。
-- `#126` 建议另开设计 issue 或 RFC，再实现后端会话表/会话撤销/审计/权限控制。
-- `#89` 建议先补迁移 RFC，不直接改运行时迁移器。
-- `#75` 的模型删除菜单残留由 `#372` 处理；其余子问题继续保持 `needs-info`，
-  等待拆分复现后逐项处理。
+- maintainer 人工 review 并合并 `#371` 后，再关闭 `#105` 或请外部用户基于合并版本复测。
+- maintainer 人工 review 并合并 `#372` 后，不需要重新打开 `#75`；如果贡献者拆出新的
+  单项复现 issue，再按单项处理。
+- `#373` 应先确认服务端会话模型、撤销策略、审计、权限控制和前端联动，再拆 PR。
+- `#374` 应先确认 SQL migration 文件规范、执行记录、数据库差异和 rollback 边界，
+  再拆 PR。
+- 不要绕过 `REVIEW_REQUIRED` 强行合并 `#371`、`#372`；这是当前开源治理的人工
+  review 交接点。
