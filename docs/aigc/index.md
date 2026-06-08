@@ -36,6 +36,7 @@ handoffs.
 - [External community publishing execution](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/external-community-publishing-execution-2026-06-08.zh-CN.md)
 - [Community publishing follow-up](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/community-publishing-follow-up-2026-06-09.zh-CN.md)
 - [GitHub governance baseline](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/github-governance-baseline-2026-06-09.zh-CN.md)
+- [Community triage round](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/community-triage-round-2026-06-09.zh-CN.md)
 
 ## Agent Roles
 
