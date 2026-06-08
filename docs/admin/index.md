@@ -28,7 +28,7 @@ keywords: [admin mss-boot-admin]
 [体验地址](https://admin-beta.mss-boot-io.top)
 
 > 账号：`admin` 密码：`123456`
-> 
+>
 > 或者直接点击github图标通过`github`登录
 
 ## ✨ 特性
@@ -89,13 +89,14 @@ keywords: [admin mss-boot-admin]
 - [发布验证清单](/admin/release-verification-checklist)
 - [性能与可观测性指南](/admin/observability-guide)
 - [安全基线指南](/admin/security-baseline)
+- [登录排障](/admin/login-troubleshooting)
 - [集成测试指南](/admin/integration-test-guide)
 - [本地联调](/admin/local-debug)
 - [国际化排障](/admin/i18n-troubleshooting)
 - [配置操作](/admin/tutorials)
 - [Docker 部署](/admin/docker)
 
-##  贡献者
+## 贡献者
 
 <span style="margin: 0 5px;" ><a href="https://github.com/lwnmengjing" ><img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/12806223?s=64&v=4&w=60&fit=cover&mask=circle&maxage=7d" /></a></span> <span style="margin: 0 5px;" ><a href="https://github.com/wangde7" ><img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/56955959?s=64&v=4&w=60&fit=cover&mask=circle&maxage=7d" /></a></span>
 

@@ -30,7 +30,9 @@ features:
     emoji: 🚀
     description: grpc服务基于grpc-go框架, 提供了全链路日志追踪, 内置prometheus监控、健康检查、pprof性能分析等
 ---
+
 ### 反馈
+
 点击 [github](https://github.com/mss-boot-io/mss-boot/issues/new) | [gitee](https://gitee.com/mss-boot-io/mss-boot/issues/new)，直接提issue
 
 ### 推荐阅读
@@ -53,11 +55,20 @@ features:
 - [发布前检查清单](/admin/pre-release-checklist)
 - [性能与可观测性指南](/admin/observability-guide)
 - [安全基线指南](/admin/security-baseline)
+- [登录排障](/admin/login-troubleshooting)
 - [集成测试指南](/admin/integration-test-guide)
 - [配置教程](/admin/configuration-guide)
+
+#### DevOps 与社区治理
+
+- [Open Source Governance](/devops/open-source-governance)
+- [SECURITY Policy FAQ](/devops/security-policy-faq)
+
 ### 讨论交流
+
 加入讨论群
 `申请消息github名@mss-boot-io,e.g. lwnemngjing@mss-boot-io`
+
 <table>
    <tr>
     <td><img src="https://mss-boot-io.github.io/.github/images/wechat.jpg" width="180px"></td>
@@ -73,13 +84,14 @@ features:
   </tr>
 </table>
 
-
 ### 💎 贡献者
-<span style="margin: 0 5px;" ><a href="https://github.com/lwnmengjing" ><img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/12806223?s=64&v=4&w=60&fit=cover&mask=circle&maxage=7d" /></a></span> 
+
+<span style="margin: 0 5px;" ><a href="https://github.com/lwnmengjing" ><img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/12806223?s=64&v=4&w=60&fit=cover&mask=circle&maxage=7d" /></a></span>
 <span style="margin: 0 5px;" ><a href="https://github.com/wangde7" ><img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/56955959?s=64&v=4&w=60&fit=cover&mask=circle&maxage=7d" /></a></span>
 <span style="margin: 0 5px;" ><a href="https://github.com/wxip" ><img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/25923931?s=64&v=4&w=60&fit=cover&mask=circle&maxage=7d" /></a></span>
 
 ### 🤟 打赏
+
 如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹
 
 <img class="no-margin" src="https://mss-boot-io.github.io/.github/images/sponsor-us.jpg"  height="400px"  alt="Sponsor Us">

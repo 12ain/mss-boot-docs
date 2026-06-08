@@ -44,12 +44,12 @@ PersonalAccessToken
 
 ### API 入口
 
-| 路径 | 方法 | 功能 |
-|------|------|------|
-| `/admin/api/personal-access-token` | GET | 令牌列表 |
-| `/admin/api/personal-access-token` | POST | 创建令牌 |
-| `/admin/api/personal-access-token/:id` | DELETE | 撤销令牌 |
-| `/admin/api/personal-access-token/refresh/:id` | POST | 刷新令牌 |
+| 路径                                           | 方法   | 功能     |
+| ---------------------------------------------- | ------ | -------- |
+| `/admin/api/personal-access-token`             | GET    | 令牌列表 |
+| `/admin/api/personal-access-token`             | POST   | 创建令牌 |
+| `/admin/api/personal-access-token/:id`         | DELETE | 撤销令牌 |
+| `/admin/api/personal-access-token/refresh/:id` | POST   | 刷新令牌 |
 
 ### 使用方式
 
@@ -127,10 +127,10 @@ OAuth2User (OAuth2 绑定信息)
 
 ### API 入口
 
-| 路由 | 功能 |
-|------|------|
-| `/auth/:provider` | 发起 OAuth2 授权 |
-| `/auth/:provider/callback` | OAuth2 回调处理 |
+| 路由                       | 功能             |
+| -------------------------- | ---------------- |
+| `/auth/:provider`          | 发起 OAuth2 授权 |
+| `/auth/:provider/callback` | OAuth2 回调处理  |
 
 ### 扩展新提供商
 
@@ -139,13 +139,13 @@ OAuth2User (OAuth2 绑定信息)
 ```yaml
 oauth2:
   github:
-    client_id: "your-client-id"
-    client_secret: "your-client-secret"
-    redirect_url: "https://your-domain/auth/github/callback"
+    client_id: 'your-client-id'
+    client_secret: 'your-client-secret'
+    redirect_url: 'https://your-domain/auth/github/callback'
   lark:
-    client_id: "your-app-id"
-    client_secret: "your-app-secret"
-    redirect_url: "https://your-domain/auth/lark/callback"
+    client_id: 'your-app-id'
+    client_secret: 'your-app-secret'
+    redirect_url: 'https://your-domain/auth/lark/callback'
 ```
 
 2. 实现对应提供商的用户信息获取逻辑
@@ -162,11 +162,11 @@ oauth2:
 
 ### 认证方式
 
-| 方式 | Header 格式 | 适用场景 |
-|------|-------------|----------|
-| JWT | `Authorization: Bearer <jwt_token>` | 用户登录后的前端请求 |
-| PAT | `Authorization: Bearer <pat_token>` | 程序化 API 调用 |
-| API Key | `X-API-Key: <key>` | 服务间调用（可扩展） |
+| 方式    | Header 格式                         | 适用场景             |
+| ------- | ----------------------------------- | -------------------- |
+| JWT     | `Authorization: Bearer <jwt_token>` | 用户登录后的前端请求 |
+| PAT     | `Authorization: Bearer <pat_token>` | 程序化 API 调用      |
+| API Key | `X-API-Key: <key>`                  | 服务间调用（可扩展） |
 
 ### Swagger 文档
 
@@ -206,23 +206,23 @@ oauth2:
 
 ### 审计能力维度
 
-| 维度 | 说明 |
-|------|------|
-| 登录日志 | 记录登录时间、IP、设备、成功/失败 |
-| 操作日志 | 记录关键操作的执行者、时间、参数 |
-| API 调用日志 | 记录 API 调用统计（可扩展） |
-| Token 使用日志 | PAT 的使用记录（可扩展） |
+| 维度           | 说明                              |
+| -------------- | --------------------------------- |
+| 登录日志       | 记录登录时间、IP、设备、成功/失败 |
+| 操作日志       | 记录关键操作的执行者、时间、参数  |
+| API 调用日志   | 记录 API 调用统计（可扩展）       |
+| Token 使用日志 | PAT 的使用记录（可扩展）          |
 
 ### 当前实现状态
 
-| 能力 | 状态 | 位置 |
-|------|------|------|
-| JWT Token 签发/验证 | ✅ 已实现 | `middleware/auth.go` |
-| PAT 管理 | ✅ 已实现 | `apis/personal_access_token.go` |
-| OAuth2 登录 | ✅ 已实现 | `apis/oauth2.go` |
-| 登录日志 | ⚠️ 部分实现 | 需检查审计模块 |
-| 操作日志 | ⚠️ 部分实现 | 需检查审计模块 |
-| 审计日志查询界面 | 📋 待完善 | 后续迭代 |
+| 能力                | 状态        | 位置                            |
+| ------------------- | ----------- | ------------------------------- |
+| JWT Token 签发/验证 | ✅ 已实现   | `middleware/auth.go`            |
+| PAT 管理            | ✅ 已实现   | `apis/personal_access_token.go` |
+| OAuth2 登录         | ✅ 已实现   | `apis/oauth2.go`                |
+| 登录日志            | ⚠️ 部分实现 | 需检查审计模块                  |
+| 操作日志            | ⚠️ 部分实现 | 需检查审计模块                  |
+| 审计日志查询界面    | 📋 待完善   | 后续迭代                        |
 
 ### 建议补强方向
 
@@ -265,6 +265,7 @@ oauth2:
 
 ## 推荐阅读
 
+- [登录排障](/admin/login-troubleshooting)
 - [权限与组织治理说明](/admin/governance-guide)
 - [运营能力说明](/admin/operations-guide)
 - [产品方向调整](/admin/product-direction)

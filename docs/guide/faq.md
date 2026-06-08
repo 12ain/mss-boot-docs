@@ -248,6 +248,8 @@ JWT Token 默认有效期 2 小时，过期后需重新登录或刷新。
 
 在角色管理中，确保角色有该 API 的权限。
 
+登录链路的完整排查步骤请参考 [登录排障](/admin/login-troubleshooting)。
+
 ## Q: 文件上传失败？
 
 **A:** 检查以下几点：
@@ -442,6 +444,12 @@ database:
 ---
 
 # 安全问题
+
+## Q: 如何报告疑似安全漏洞？
+
+**A:** 不要在公开 Issue 中披露漏洞细节、token、密码、生产日志或可直接
+滥用的复现步骤。请先阅读 [SECURITY Policy FAQ](/devops/security-policy-faq)，
+并按受影响仓库的 `SECURITY.md` 路径提交私密报告。
 
 ## Q: 如何修改默认密码？
 

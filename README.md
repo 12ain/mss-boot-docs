@@ -30,8 +30,12 @@
 8. `/admin/pre-release-checklist` 发布前检查清单
 9. `/admin/observability-guide` 性能与可观测性指南
 10. `/admin/security-baseline` 安全基线指南
-11. `/admin/integration-test-guide` 集成测试指南
-12. `/admin/configuration-guide` 配置教程
+11. `/admin/login-troubleshooting` 登录排障
+12. `/admin/integration-test-guide` 集成测试指南
+13. `/admin/configuration-guide` 配置教程
+
+如果你需要报告疑似漏洞，请先阅读 `/devops/security-policy-faq`，不要在公开
+Issue 中披露可被滥用的细节。
 
 ## 本地开发
 
@@ -53,11 +57,13 @@ pnpm run build
 完整的测试文档请参考 [集成测试指南](/admin/integration-test-guide) 和各子项目的 README 文件：
 
 ### 后端测试 (mss-boot-admin)
+
 - **单元测试**: `go test ./... -v -coverprofile=coverage.out`
 - **集成测试**: `go test -tags=integration ./...`
 - **覆盖率要求**: ≥80%
 
 ### 前端测试 (mss-boot-admin-antd)
+
 - **单元测试**: `pnpm test --coverage`
 - **E2E 测试**: `pnpm e2e`
 - **覆盖率要求**: ≥80%

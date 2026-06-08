@@ -12,11 +12,11 @@
 | --------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | Branch protection / rulesets      | 保护 `main`，要求 PR、review、code owner review、conversation resolution；force push 回读仍需复核 | 2026-06-09 已落地主要保护项，`allow_force_pushes` 在 3 个仓库 API 回读仍显示 enabled，需要 GitHub Web UI 或 Rulesets 继续确认 | Maintainer |
 | Required checks                   | Go 仓：PR Guard、Docs Drift、CI、CodeQL、govulncheck；前端/文档：PR Guard、Docs Drift、CI、CodeQL | 2026-06-09 已落地，required checks 仅选择 PR 可触发的状态，避免 push-only 任务卡住合并                                        | Maintainer |
-| Private vulnerability reporting   | 对核心仓库启用 GitHub private vulnerability reporting                                             | 避免漏洞通过 public issue 披露                                                                                                | Maintainer |
+| Private vulnerability reporting   | 对核心仓库启用 GitHub private vulnerability reporting                                             | 2026-06-09 专门端点复核四个核心仓库均为 `{"enabled":true}`，后续只需定期抽查                                                  | Maintainer |
 | Security contact                  | 决定公开安全邮箱或 GitHub Advisories-only 策略                                                    | `SECURITY.md` 当前记录为待定，需最终入口                                                                                      | Maintainer |
-| Secret scanning / push protection | GitHub Advanced Security 可用时开启；免费能力可先依赖 secret scanning alert                       | 降低密钥泄漏风险                                                                                                              | Maintainer |
-| Dependabot security updates       | 启用 security updates 与 grouped version updates                                                  | 依赖安全修复自动化                                                                                                            | Maintainer |
-| Content reporting                 | 将 `mss-boot`、`mss-boot-docs` 等仓库的 content reporting 打开                                    | GitHub Community Profile 复核显示这两个仓库 `content_reports_enabled=false`，会影响公开健康度                                 | Maintainer |
+| Secret scanning / push protection | GitHub Advanced Security 可用时开启；免费能力可先依赖 secret scanning alert                       | 2026-06-09 API 复核四个核心仓库 secret scanning 与 push protection 均为 enabled                                               | Maintainer |
+| Dependabot security updates       | 启用 security updates 与 grouped version updates                                                  | 2026-06-09 API 复核四个核心仓库 Dependabot security updates 均为 enabled                                                      | Maintainer |
+| Content reporting                 | 将 `mss-boot`、`mss-boot-docs` 等仓库的 content reporting 打开                                    | 2026-06-09 Web UI 已保存为 All users；Community Profile API 对这两个仓库仍回读 false，需等待缓存或二次复核                    | Maintainer |
 
 ## P1：低成本社区运营设置
 
@@ -85,4 +85,8 @@
 - `.github` Weekly Digest workflow 修复 Node `ENOBUFS` 风险，失败周报 rerun 后恢复成功。
 - mss-boot 与 mss-boot-admin-antd 打开 release workflow 幂等化 PR，等待 code owner review。
 - GitHub Discussions 被确认为社区主阵地，外部平台发布和反馈回收以 GitHub Discussion/Issue 为最终沉淀位置。
+- 4 个核心仓库 private vulnerability reporting 已通过专门端点确认 enabled。
+- 4 个核心仓库 Dependabot security updates、secret scanning、secret scanning push protection 已通过 API 确认 enabled。
+- mss-boot 与 mss-boot-docs reported content 已在 Web UI 保存为 All users；Community Profile API 仍存在回读延迟。
+- mss-boot-docs 新增 SECURITY Policy FAQ 与登录排障页面，用于关闭文档社区健康 issue #5/#6。
 - 未解决：mss-boot、mss-boot-admin、mss-boot-admin-antd 的 branch protection API 回读仍显示 `allow_force_pushes.enabled=true`，后续需在 GitHub Web UI 或 Rulesets 复核。

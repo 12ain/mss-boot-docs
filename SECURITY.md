@@ -8,6 +8,9 @@ Use GitHub Security Advisories for the affected repository when private
 vulnerability reporting is enabled. If the report is documentation-specific,
 include the page, commit, exposed information, and suggested remediation.
 
+For report contents, public issue boundaries, and sanitization guidance, read
+the docs FAQ: `docs/devops/security-policy-faq.md`.
+
 The organization still needs a final public security contact. Until then,
 private GitHub advisories are the preferred intake path. If private reporting is
 not available for the affected repository, open a minimal public issue that does
