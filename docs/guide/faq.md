@@ -128,7 +128,7 @@ export SERVER_ADDR=":9080"
 
 ```yaml
 server:
-  addr: ":9080"
+  addr: ':9080'
 ```
 
 ## Q: 前端端口冲突怎么办？
@@ -170,6 +170,27 @@ go run main.go migrate -v
 4. **手动执行迁移**：
 
 如果自动迁移失败，可以手动执行 SQL 文件（在 `cmd/migrate/migration/` 目录）。
+
+## Q: 如何生成或新增数据表？
+
+**A:** 当前推荐使用 Go model + migration 的方式新增数据表，不再推荐把
+虚拟模型作为新项目的主路径。
+
+推荐流程：
+
+1. 在后端新增或调整 Go model，明确字段、索引和关联关系。
+2. 在 migration 中添加数据库结构变更。
+3. 执行迁移：
+
+```bash
+go run main.go migrate
+```
+
+4. 启动服务并验证 API、菜单、角色权限和前端页面是否符合预期。
+5. 如果这个表会暴露给后台用户，补充对应的权限、菜单、文档和测试说明。
+
+虚拟模型仍可能存在于存量代码中，但它已经是降级能力。新需求应优先走可审查
+的 Go model、migration 和权限治理路径。
 
 ---
 
@@ -263,8 +284,8 @@ client_max_body_size 100M;
 
 ```yaml
 jwt:
-  secret: "your-secret-key"
-  expire: "4h"  # 修改为 4 小时
+  secret: 'your-secret-key'
+  expire: '4h' # 修改为 4 小时
 ```
 
 或通过环境变量：
@@ -279,7 +300,7 @@ export JWT_EXPIRE="4h"
 
 ```yaml
 logger:
-  level: "debug"  # debug / info / warn / error
+  level: 'debug' # debug / info / warn / error
 ```
 
 或通过环境变量：
@@ -303,9 +324,9 @@ export LOG_LEVEL="debug"
 ```yaml
 oauth2:
   github:
-    clientID: "your-client-id"
-    clientSecret: "your-client-secret"
-    redirectURL: "http://your-domain/api/v1/oauth2/github/callback"
+    clientID: 'your-client-id'
+    clientSecret: 'your-client-secret'
+    redirectURL: 'http://your-domain/api/v1/oauth2/github/callback'
 ```
 
 3. 前端配置登录入口。
@@ -316,11 +337,11 @@ oauth2:
 
 ```yaml
 email:
-  host: "smtp.example.com"
+  host: 'smtp.example.com'
   port: 587
-  username: "your-email@example.com"
-  password: "your-password"
-  from: "noreply@example.com"
+  username: 'your-email@example.com'
+  password: 'your-password'
+  from: 'noreply@example.com'
 ```
 
 ---
@@ -401,7 +422,7 @@ kubectl describe ingress mss-boot-admin-ingress -n mss-boot
 database:
   maxOpen: 100
   maxIdle: 20
-  maxLifetime: "1h"
+  maxLifetime: '1h'
 ```
 
 2. **缓存配置**：
@@ -468,9 +489,9 @@ server {
 
 ```yaml
 server:
-  addr: ":443"
-  certFile: "/path/to/cert.pem"
-  keyFile: "/path/to/key.pem"
+  addr: ':443'
+  certFile: '/path/to/cert.pem'
+  keyFile: '/path/to/key.pem'
 ```
 
 ## Q: CORS 配置如何设置？
@@ -480,16 +501,16 @@ server:
 ```yaml
 cors:
   allowOrigins:
-    - "https://your-domain.com"
-    - "https://admin.your-domain.com"
+    - 'https://your-domain.com'
+    - 'https://admin.your-domain.com'
   allowMethods:
-    - "GET"
-    - "POST"
-    - "PUT"
-    - "DELETE"
+    - 'GET'
+    - 'POST'
+    - 'PUT'
+    - 'DELETE'
   allowHeaders:
-    - "Authorization"
-    - "Content-Type"
+    - 'Authorization'
+    - 'Content-Type'
 ```
 
 ---
