@@ -56,7 +56,7 @@
 - 发布后 `mss-boot-admin#371` 已从 pseudo-version 切换到正式
   `github.com/mss-boot-io/mss-boot v0.7.3`。
 
-## 待复审 PR
+## 后续复核与合并
 
 - `mss-boot-admin#371`
   - 已按 `12ain` 二轮 review 修复 P0/P1：
@@ -65,14 +65,20 @@
     - 依赖改为 `mss-boot v0.7.3` 正式 tag。
   - 本地验证：`go test ./config`、`go test ./...`。
   - GitHub checks 已全绿。
-  - 当前策略：公开说明等待刷新 checks 和外部复审，不立即绕过社区 review。
+  - 2026-06-08 复核结论：该 PR 修复的是仍在使用的 query cache 运行期问题，
+    与虚拟模型降级范围无关；已公开说明并使用 maintainer/admin 权限
+    squash merge。
 - `mss-boot-admin#372`
   - 已按 `12ain` 二轮 review 修复 P0/P1：
     - cleanup 失败后恢复已 soft-delete 的 model；
     - `LoadPolicy()` 失败后恢复 model、menu、Casbin policy，再返回错误；
     - policy 删除前收集可恢复数据并记录数量，避免不可观测的授权漂移。
   - 本地验证：`go test ./apis -run TestDeleteGeneratedModelMenus`、`go test ./...`。
-  - GitHub checks 仍在运行，等待结果和外部复审。
+  - GitHub checks 已全绿。
+  - 2026-06-08 复核结论：虚拟模型已是降级/废弃路径功能，不应继续为该功能
+    扩展 P2/P3 复杂边界。本 PR 仅作为存量安装的有限安全兜底合并，后续除非
+    活跃用户在移除前报告明确回归，否则不继续深投 i18n 清理、并发竞争、递归
+    CTE 深度保护等增强。
 
 ## 社区治理准则
 
@@ -80,6 +86,8 @@
   合并使用 squash merge。
 - 如果外部 reviewer 提出 P0/P1，即使 PR 来自维护者/Codex 分支，也先修复并公开
   说明，不直接绕过。
+- 对已降级或废弃路径功能，社区说明必须明确范围：只接受低投入的存量安全兜底，
+  不把 review 扩展成新能力建设。
 - 维护者自己的 PR 不能用同账号 approve；应公开留下验证说明，再由分支策略或
   maintainer/admin 权限处理。
 - GitHub AI 能力优先使用：Copilot PR review、CodeQL、PR Guard、Docs Drift、
