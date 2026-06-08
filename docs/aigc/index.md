@@ -38,6 +38,7 @@ handoffs.
 - [GitHub governance baseline](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/github-governance-baseline-2026-06-09.zh-CN.md)
 - [Community triage round](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/community-triage-round-2026-06-09.zh-CN.md)
 - [GitHub security and community health](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/github-security-community-health-2026-06-09.zh-CN.md)
+- [Dependency security governance round](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/dependency-security-governance-round-2026-06-09.zh-CN.md)
 
 ## Agent Roles
 

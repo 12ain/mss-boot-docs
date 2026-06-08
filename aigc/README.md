@@ -25,6 +25,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [GitHub governance baseline](./prompts/github-governance-baseline-2026-06-09.zh-CN.md)
 - [Community triage round](./prompts/community-triage-round-2026-06-09.zh-CN.md)
 - [GitHub security and community health](./prompts/github-security-community-health-2026-06-09.zh-CN.md)
+- [Dependency security governance round](./prompts/dependency-security-governance-round-2026-06-09.zh-CN.md)
 
 ## Rules
 
