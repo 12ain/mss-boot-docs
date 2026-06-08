@@ -11,6 +11,12 @@
   - review thread 已回复并 resolve。
   - PR checks 全部成功。
   - 当前仍需 code owner review，不绕过开源 review 门禁。
+- mss-boot #383：阻断新增 golangci-lint 问题 PR。
+  - 关联 #352。
+  - 首次移除 `continue-on-error: true` 后暴露全量 lint 仍有 131 个历史问题。
+  - PR 已调整为 pull_request 场景使用 `only-new-issues: true` 阻断新增 lint 债，main push 继续保留 baseline advisory。
+  - 本地已通过 `git diff --check` 与 `go test ./...`。
+  - 当前等待 GitHub PR CI 与 code owner review。
 - mss-boot-admin-antd #97：release workflow 幂等化 PR。
   - 修复 Copilot review：移除 `gh release create` 中与 `--notes-file` 互斥的 `--generate-notes`，并同步 AIGC 说明。
   - review threads 已回复并 resolve。
