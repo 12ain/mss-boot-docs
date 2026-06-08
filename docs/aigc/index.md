@@ -30,6 +30,11 @@ handoffs.
 - [Good first issue factory](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/open-source-good-first-issue-factory.zh-CN.md)
 - [Operations backlog](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/open-source-operations-backlog.zh-CN.md)
 - [Community operations execution](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/open-source-community-ops-execution-2026-06-05.zh-CN.md)
+- [Dual-market community growth](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/community-growth-dual-market-2026-06-08.zh-CN.md)
+- [GitHub Discussions community ops](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/github-discussions-community-ops-2026-06-08.zh-CN.md)
+- [External community publishing queue](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/external-community-publishing-queue-2026-06-08.zh-CN.md)
+- [External community publishing execution](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/external-community-publishing-execution-2026-06-08.zh-CN.md)
+- [Community publishing follow-up](https://github.com/mss-boot-io/mss-boot-docs/blob/main/aigc/prompts/community-publishing-follow-up-2026-06-09.zh-CN.md)
 
 ## Agent Roles
 

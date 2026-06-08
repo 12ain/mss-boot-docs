@@ -71,6 +71,7 @@ database migration, production deployment, or cross-repository refactors.
 | Daily | Dependabot and security checks | Merge low-risk patches after CI; batch risky upgrades. |
 | Weekly | Weekly Digest | Pick 1 to 3 issues, update labels, publish short notes if useful. |
 | Monthly | Release readiness review | Confirm compatibility, changelog, smoke evidence, and rollback notes. |
+| Outreach follow-up | External community check | Route external feedback back to GitHub Issues, Discussions, docs, or security policy. |
 
 AI may draft issue text, summarize CI failures, propose labels, update memory,
 and prepare release notes. AI should not auto-merge code, publish Cloudflare
@@ -167,3 +168,7 @@ For a personal maintainer, the default should be low-noise:
   `mss-boot-admin-antd`.
 - Add SBOM/provenance as a release hardening milestone after the CI baseline is
   stable.
+- Keep repository About text and topics aligned with the governance-first
+  direction before each outreach round.
+- Convert external comments into GitHub follow-up links within 48 hours when
+  they are actionable.

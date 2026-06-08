@@ -10,3 +10,4 @@ keywords: [devops]
 
 - [Open Source Governance](./open-source-governance.md)
 - [Open Source Ecosystem Playbook](./open-source-ecosystem-playbook.md)
+- [Community Operations Playbook](./community-operations-playbook.md)

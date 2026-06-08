@@ -40,3 +40,33 @@ the affected repository and use private GitHub Security Advisories when enabled.
 
 Organization-level workflow, release policy, and cross-repository decisions must
 be recorded in `mss-boot-docs/aigc/prompts/`.
+
+## GitHub-First Community Flow
+
+External platforms can introduce the project, but they are not the decision
+system. Bugs, deployment failures, architecture tradeoffs, documentation gaps,
+and security concerns must be routed back to GitHub Issues, Discussions, docs,
+or the security policy path.
+
+Use Discussions for review and roadmap tradeoffs. Use Issues for actionable
+work with clear reproduction or acceptance criteria. Use docs for stable
+answers, FAQ entries, and release/process policy.
+
+## Repository About And Topics
+
+Repository descriptions and topics should match the current governance-first
+direction:
+
+- RBAC, configuration, API registry, operations, release policy, and AI-assisted
+  maintenance are current public signals.
+- Virtual model, generator-first, and low-code-first language should not be
+  presented as the main direction while those features are degraded or being
+  retired.
+- Homepage links should point to the docs site unless a repository has a more
+  specific stable entry point.
+
+## Reviewer And CODEOWNERS Boundary
+
+Invite reviewers through Discussions and issues first. Add `CODEOWNERS` only for
+real maintainers or confirmed community reviewers. Placeholder owners reduce
+trust and create false expectations during PR review.
