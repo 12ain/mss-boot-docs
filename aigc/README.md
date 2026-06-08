@@ -22,6 +22,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [mss-boot-admin external issue dev validation](./prompts/admin-external-issue-dev-validation-2026-06-07.zh-CN.md)
 - [External community publishing execution](./prompts/external-community-publishing-execution-2026-06-08.zh-CN.md)
 - [Community publishing follow-up](./prompts/community-publishing-follow-up-2026-06-09.zh-CN.md)
+- [GitHub governance baseline](./prompts/github-governance-baseline-2026-06-09.zh-CN.md)
 
 ## Rules
 
