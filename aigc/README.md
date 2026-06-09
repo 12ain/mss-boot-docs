@@ -29,6 +29,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [Docs dependency security convergence](./prompts/docs-dependency-security-convergence-2026-06-09.zh-CN.md)
 - [Community issue and PR governance round](./prompts/community-issue-pr-governance-round-2026-06-09.zh-CN.md)
 - [PR merge completion round](./prompts/pr-merge-completion-2026-06-09.zh-CN.md)
+- [Domestic community publishing drafts](./prompts/domestic-community-publishing-drafts-2026-06-09.zh-CN.md)
 
 ## Rules
 
