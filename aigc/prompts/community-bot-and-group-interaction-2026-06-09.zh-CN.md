@@ -98,3 +98,51 @@
 - 不使用逆向协议、客户端 hook、个人号模拟登录作为公开项目的正式机器人底座。
 - 不把微信群/QQ群聊天当作唯一知识沉淀位置；所有可复用结论应回流 GitHub Discussions、docs 或 issue。
 - AI 回复必须说明不确定性，不能擅自承诺 roadmap、发布时间、安全结论或维护者立场。
+
+## 2026-06-09 纠偏：微信官方机器人能力
+
+维护者提醒“微信不是有机器人功能吗”。复核微信官方文档后，结论修正如下：
+
+- 微信生态确实有官方机器人/智能客服能力，核心入口是微信对话开放平台。
+- 微信对话开放平台官方描述为智能对话机器人服务平台，支持接入公众号、小程序、H5、开放 API 等入口。
+- 微信对话开放平台的“机器人回复配置”支持直接回复和接口调用，适合 mss-boot 做文档问答、FAQ、GitHub issue/discussion 引导。
+- 公众号接入支持公众号管理员扫码授权后，让用户在公众号内直接输入内容并发起对话。
+- 微信客服接入文档显示需要企业管理员账号扫码授权，并进入微信客服后台接入服务；维护者当前没有企业微信，因此不作为当前主线。
+- 企业微信“消息推送（原群机器人）”是企业微信群 webhook 推送能力，当前维护者没有企业微信，仅作为未来可选适配。
+- 普通个人微信群仍不等同于上述官方入口；当前不要做逆向协议、hook、个人号模拟登录或长期截图自动化。
+
+更新后的机器人方向：
+
+1. GitHub Discussions / Issues 仍是知识沉淀和工单主入口。
+2. QQ 官方机器人优先覆盖 QQ 群内自动互动。
+3. 微信侧优先验证微信对话开放平台的公众号、H5 或开放 API 入口，而不是普通微信群自动回复。
+4. 普通微信群继续做维护者授权下的人工/AI 辅助互动，并导流到 GitHub 或微信官方入口。
+
+新增官方参考：
+
+- 微信对话开放平台介绍：https://developers.weixin.qq.com/doc/aispeech/platform/INTRODUCTION.html
+- 微信机器人回复配置：https://developers.weixin.qq.com/doc/aispeech/platform/dialog/skill-reply.html
+- 微信公众号智能对话绑定：https://developers.weixin.qq.com/doc/aispeech/platform/application/official_account.html
+- 微信客服智能对话绑定：https://developers.weixin.qq.com/doc/aispeech/platform/application/wxkefu.html
+
+## 2026-06-09 新项目
+
+已创建独立仓库：
+
+- 仓库：https://github.com/mss-boot-io/mss-boot-community-bot
+- 定位：mss-boot 官方渠道社区助手，承载 GitHub webhook、QQ 官方机器人、微信对话开放平台入口、消息安全策略和后续部署清单。
+- 初始工程：Go 标准库 HTTP 服务，零第三方运行依赖；首轮 CI、CodeQL、OpenSSF Scorecard 已通过，govulncheck 的初始失败是 action 重复 checkout 导致的 GitHub Authorization header 问题，后续在新仓库修复。
+- 企业微信不是必需项，只作为 optional future adapter。
+
+维护者要求：大模型层必须支持 OpenAI 通用 API 格式接入。
+
+新仓库已按 OpenAI-compatible Chat Completions 设计：
+
+- `MSS_BOT_LLM_BASE_URL`
+- `MSS_BOT_LLM_API_KEY`
+- `MSS_BOT_LLM_MODEL`
+- `MSS_BOT_LLM_TIMEOUT`
+- `MSS_BOT_LLM_TEMPERATURE`
+- `MSS_BOT_LLM_MAX_TOKENS`
+
+该层只做模型传输适配；在进入模型前仍必须执行社群安全策略、GitHub/docs 上下文装配、引用来源和人工接管规则。
