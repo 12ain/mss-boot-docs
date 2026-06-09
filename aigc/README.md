@@ -31,6 +31,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [PR merge completion round](./prompts/pr-merge-completion-2026-06-09.zh-CN.md)
 - [Domestic community publishing drafts](./prompts/domestic-community-publishing-drafts-2026-06-09.zh-CN.md)
 - [Community ops heartbeat 2026-06-09 09:30Z](./prompts/community-ops-heartbeat-2026-06-09-0930z.zh-CN.md)
+- [Community publishing and good-first split](./prompts/community-publishing-and-good-first-split-2026-06-09.zh-CN.md)
 
 ## Rules
 
