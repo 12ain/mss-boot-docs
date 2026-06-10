@@ -32,6 +32,7 @@ here so they survive local multi-git workspace changes and context resets.
 - [Domestic community publishing drafts](./prompts/domestic-community-publishing-drafts-2026-06-09.zh-CN.md)
 - [Community ops heartbeat 2026-06-09 09:30Z](./prompts/community-ops-heartbeat-2026-06-09-0930z.zh-CN.md)
 - [Community publishing and good-first split](./prompts/community-publishing-and-good-first-split-2026-06-09.zh-CN.md)
+- [Release leader policy and v0.7.x status](./prompts/release-leader-policy-and-v0.7x-2026-06-10.zh-CN.md)
 
 ## Rules
 
