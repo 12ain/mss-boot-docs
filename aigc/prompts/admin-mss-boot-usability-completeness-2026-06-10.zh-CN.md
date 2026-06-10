@@ -2,6 +2,7 @@
 
 时间：2026-06-10 09:12 CST
 更新：2026-06-10 09:35 CST
+追加更新：2026-06-10 11:00 CST
 
 ## 背景
 
@@ -14,6 +15,7 @@
 - PR：https://github.com/mss-boot-io/mss-boot/pull/386
 - 分支：`codex/open-source-security-baseline-20260607`
 - 最终提交：`9e82bd8 fix: align version ldflags`
+- Squash merge 提交：`e62d7da9678588f3113a964b4e9c9221bf4581ea`
 - 校对 GitHub Release 后确认最新版本为 `v0.7.3`，README 原先仍写 `v0.7.2`，安装命令仍写 `v0.7.1`。
 - 更新 `README.md` / `README.Zh-cn.md`：
   - 最新版本统一为 `v0.7.3`。
@@ -30,6 +32,7 @@
 - PR：https://github.com/mss-boot-io/mss-boot-admin/pull/390
 - 分支：`codex/fix-language-public-beta`
 - 最终提交：`1e0bea8 Merge remote-tracking branch 'origin/main' into codex/fix-language-public-beta`
+- Squash merge 提交：`c8f35515cf59e5fa4e348a67ab82b3c44e0588c5`
 - 更新 `README.md` / `README.zh-CN.md`：
   - Go 版本统一为 1.26+。
   - 本地快速开始改为 SQLite 默认路径，避免继续误导贡献者以为 `DB_DSN` 环境变量在 local 配置下必然生效。
@@ -47,6 +50,7 @@
 - PR：https://github.com/mss-boot-io/mss-boot-admin-antd/pull/105
 - 分支：`codex/open-source-issue-templates-20260607`
 - 最终提交：`0cdbbfc docs: align frontend startup commands`
+- Squash merge 提交：`b06da3efcba3693f56ff8909f3a5ad3ed8a8ac14`
 - 更新 `package.json`：
   - `engines.node` 从 `>=12.0.0` 更新为 `>=22.0.0`。
   - 增加 `engines.pnpm >=9.0.0`。
@@ -67,6 +71,33 @@
 - 更新 `src/typings.d.ts`，补齐 `REACT_APP_ENV` 的 `local`、`alpha`、`beta`、`prod` 类型。
 - 合并 `origin/main` 后保留主线依赖升级和 `pnpm.overrides`，并按 Copilot Review 意见将 README 启动命令统一为当前真实脚本：`pnpm dev` / `pnpm start:no-mock`。
 
+#### 依赖治理追加
+
+- PR：https://github.com/mss-boot-io/mss-boot-admin-antd/pull/106
+- 标题：`chore: remove obsolete frontend tooling`
+- Squash merge 提交：`461956dc4096ea4a77915b2e1c5697b4e37af2f4`
+- 移除未使用且带来安全告警链路的 `react-dev-inspector`、`@ant-design/pro-cli` 和 `i18n-remove` 脚本，清理 `tar`、`shell-quote`、`yeoman-environment` 相关告警入口。
+
+- PR：https://github.com/mss-boot-io/mss-boot-admin-antd/pull/107
+- 标题：`chore(deps): bump lodash from 4.17.21 to 4.18.1`
+- Squash merge 提交：`d32b8ce5f20365205c5bee49f8dd80f5952d89a3`
+- 评估 Dependabot PR 后确认方向合理，浏览器验证检查通过后 squash merge。
+
+- PR：https://github.com/mss-boot-io/mss-boot-admin-antd/pull/108
+- 标题：`chore: pin vulnerable transitive frontend deps`
+- Squash merge 提交：`a2e5638aae499765fdf9bfd56db285d9059127c7`
+- 使用 `pnpm.overrides` 收敛 `@babel/plugin-transform-modules-systemjs`、`@tootallnate/once`、`immutable`、`flatted`、`picomatch`、`postcss`、`yaml` 等传递依赖告警。
+
+- PR：https://github.com/mss-boot-io/mss-boot-admin-antd/pull/109
+- 标题：`chore: pin remaining vulnerable frontend deps`
+- Squash merge 提交：`d017f2f7c15676267d4928dcc7a7020bc26b28b6`
+- 追加 `webpack@5.107.2` 直接 devDependency，并用 `pnpm.overrides` 收敛 `@remix-run/router`、`js-yaml`、`minimatch`、`webpack` 传递依赖告警。
+
+- PR：https://github.com/mss-boot-io/mss-boot-admin-antd/pull/110
+- 标题：`chore: pin axios and dom transitive deps`
+- Squash merge 提交：`b83872c8902e18eb029956cc11dacc18bdee6a37`
+- 追加 `form-data@4.0.5`、`min-document@2.19.2` overrides，补齐 #109 合并后 GitHub Dependabot dynamic runs 暴露的剩余传递依赖告警。
+
 ## 验证结果
 
 - `mss-boot`: `make test` 通过。
@@ -80,17 +111,29 @@
 - `mss-boot-admin-antd`: `pnpm build:local` 通过。
 - `mss-boot`: GitHub PR 检查全部通过，包括 ci test/lint、govulncheck、CodeQL Advanced、Docs Drift、PR Guard。
 - `mss-boot-admin-antd`: GitHub PR 检查全部通过，包括 CI build、CodeQL、Docs Drift、PR Guard。
+- `mss-boot`: PR #386 已浏览器复核，Copilot Review 无阻塞评论，已 squash merge。main 后续 GitHub Actions Mirror、OpenSSF Scorecard、govulncheck、ci、CodeQL Advanced 均通过。
+- `mss-boot-admin`: PR #390 已浏览器复核，已 squash merge。main 后续 GitHub Actions 均通过。
+- `mss-boot-admin-antd`: PR #105/#106/#107/#108/#109/#110 均已浏览器复核并 squash merge。#110 页面显示 `10 checks passed`，Copilot Review 生成 0 条评论；main 最新提交 `b83872c` 的 GitHub Actions Mirror、OpenSSF Scorecard、CodeQL、CI 均通过。
 
 ## 当前状态
 
-- 三个 PR 均已推送并通过本地验证和 GitHub Actions。
-- 三个 PR 当前均为 `REVIEW_REQUIRED`，`mergeStateStatus` 显示 `BLOCKED` 的原因是仓库规则要求人工 review。
-- 本轮未合并 PR、未发布镜像、未发布 Cloudflare。
+- 本轮涉及的可合并 PR 已全部 squash merge：
+  - `mss-boot` #386。
+  - `mss-boot-admin` #390。
+  - `mss-boot-admin-antd` #105/#106/#107/#108/#109/#110。
+- `mss-boot-admin-antd` 当前无 open PR。
+- GitHub Actions 历史记录中仍可看到旧提交上的 Dependabot dynamic failure，但最新 main 提交 `b83872c` 的核心流水线均为 success；截至 2026-06-10 11:00 CST，未观察到针对 `b83872c` 的新 dynamic failure。
+- 本轮未发布镜像、未发布 Cloudflare。
 - `mss-boot-admin` 工作区仍保留用户原有脏文件：`testdata/test.tar.gz`、`testdata/test.zip`，不要在后续无关任务中提交或回滚它们。
+- `mss-boot-admin-antd` 仍保留后续治理 issue：
+  - #101：RFC，迁移 Umi/Vite/router 依赖链以继续降低安全告警和维护成本。
+  - #103：文档盘点前端安全迁移影响。
+  - #104：补充前端迁移 smoke/rollback checklist。
 
 ## 后续建议
 
 - `mss-boot-admin` 后续应补一个更轻量的本地依赖路径：单节点 Redis compose 或明确说明当前 Redis compose 是主从哨兵拓扑，避免新人误以为必须启动全套。
 - `mss-boot-admin` 可以继续把 `config/application.yml` 的 SQLite 默认体验做成更明确的 `make dev` / `make migrate` / `make run`。
 - `mss-boot-admin-antd` 后续可处理 Browserslist 数据库陈旧问题，但应评估是否会带来 lockfile 变化。
+- `mss-boot-admin-antd` 当前通过 overrides 收敛了一批传递依赖风险，但长期 9.2+ 到 10 分方向仍应落在前端技术栈升级：减少 Umi 3/旧 webpack/旧富文本编辑器链路对传递依赖安全治理的拖累。
 - 前端 Cloudflare 发布仍遵守低频原则：本地和 CI 验证充分后再发布 beta/prod。
