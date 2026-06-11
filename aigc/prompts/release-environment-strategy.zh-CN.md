@@ -4,12 +4,13 @@
 
 | 环境 | Kubernetes namespace | 前端域名 | API 域名 | 定位 |
 | --- | --- | --- | --- | --- |
-| alpha / dev | `mss-boot-dev` | `admin-alpha.mss-boot-io.top` | 待实际网关配置确认，推荐 `admin-api-alpha.mss-boot-io.top` | 内部开发、联调、本地前端对接 |
-| beta | `mss-boot-beta` | `admin-beta.mss-boot-io.top` | `admin-api-beta.mss-boot-io.top` | 对外展示、公开预发布、必须冒烟通过 |
+| alpha / dev | devops 集群内 `mss-boot-dev` | `admin-alpha.mss-boot-io.top` | `admin-api-alpha.mss-boot-io.top` | 内部开发、联调、本地前端对接 |
+| beta | devops 集群内 `mss-boot-beta` | `admin-beta.mss-boot-io.top` | `admin-api-beta.mss-boot-io.top` | 对外展示、公开预发布、必须冒烟通过 |
 | prod | `mss-boot-prod` | `admin.mss-boot-io.top` | 待正式部署确认，推荐 `admin-api.mss-boot-io.top` | 正式生产环境，后端使用 tag 版本 |
 
 说明：
 
+- alpha/dev 与 beta 后端均部署在同一个 devops 集群，不能再用 `~/.kube/baas.yaml` 推断 beta 后端状态。
 - `mss-boot-dev` 后续归类为开发/alpha 环境，不再承载对外展示 beta 职责。
 - 本地启动的前端默认对接 alpha 后端域名，用于日常开发联调。
 - `admin-beta.mss-boot-io.top` 是 Cloudflare 上的对外展示前端，必须对接 `admin-api-beta.mss-boot-io.top`。

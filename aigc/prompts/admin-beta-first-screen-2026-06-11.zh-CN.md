@@ -45,5 +45,7 @@
 ## 仍需跟进
 
 - 2026-06-11 从本机访问 `admin-api-beta.mss-boot-io.top/admin/api/app-configs/profile` 仍 20 秒超时，登录接口此前出现 Cloudflare 522。
-- 同期 `kubectl --kubeconfig ~/.kube/baas.yaml` 访问集群 API 出现 TLS handshake timeout。
-- 这说明 beta API 源站连通性仍是独立问题；待集群 API 可达后，优先检查 `mss-boot-beta` namespace 的 Pod、Service、Ingress、Cloudflare DNS/回源链路。
+- 2026-06-11 用户确认 alpha 与 beta 后端在同一个 devops 集群；后续排查应以 alpha 所在 devops 集群为准，不再使用 `~/.kube/baas.yaml` 判断 beta。
+- 本机现有 `~/.kube/devops.yml`、`~/.kube/new-devops.yaml`、`~/.kube/baas-dev.yml` 缺少 context，且 client certificate/key 内容无法被 OpenSSL 解析；临时补 context 后仍无法正常访问 devops API。
+- `devops.inichain.com`、`admin-api-alpha.mss-boot-io.top`、`admin-api-beta.mss-boot-io.top` 当前 DNS 均解析到 `198.18.0.x` 网段；TCP 可连，但 devops API TLS 握手超时，alpha API TLS 阶段异常，beta API 由 Cloudflare 返回 522。
+- 这说明 beta API 源站连通性仍是独立问题；待 devops 集群 kubeconfig/VPN/网络入口可用后，优先检查 `mss-boot-dev` 与 `mss-boot-beta` namespace 的 Pod、Service、Ingress、Cloudflare DNS/回源链路。

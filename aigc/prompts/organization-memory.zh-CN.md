@@ -37,8 +37,8 @@
 - P4 集成与扩展护栏已评估为完成，国际化、对象存储/上传、WebSocket、API-first 扩展能力应纳入治理、安全、文档和测试检查清单。
 - P5 历史能力降级与叙事收口已评估为完成，动态模型与模板/代码生成均为 L3 弱化能力：保留但非主线，生产环境建议使用标准 Controller 模式。
 - 产品叙事应避免把 `mss-boot-admin` 表述为低代码平台或以动态模型/代码生成为核心卖点。
-- 2026-06-04 已在 `~/.kube/baas.yaml` 集群部署的 `mss-boot-dev` 后续归类为 alpha/dev 开发环境，外部域名规划改为 `https://admin-alpha.mss-boot-io.top`；本地启动的前端默认对接 alpha 后端。完整发布环境策略见 `mss-boot-docs/aigc/prompts/release-environment-strategy.zh-CN.md`。
-- beta 对外展示环境改为独立 namespace `mss-boot-beta`：Cloudflare 前端 `https://admin-beta.mss-boot-io.top` 对接后端 API `https://admin-api-beta.mss-boot-io.top`。`mss-boot-beta` 配置复制 `mss-boot-dev` 形态，但数据库和 Redis 复用 dev 实例时必须使用新库/独立 Redis 空间，避免污染 dev 数据。
+- alpha/dev 与 beta 后端均归属同一个 devops 集群：alpha/dev 使用 `mss-boot-dev`，对外域名为 `https://admin-alpha.mss-boot-io.top` / `https://admin-api-alpha.mss-boot-io.top`；beta 使用独立 namespace `mss-boot-beta`，Cloudflare 前端 `https://admin-beta.mss-boot-io.top` 对接后端 API `https://admin-api-beta.mss-boot-io.top`。不要再用 `~/.kube/baas.yaml` 推断 alpha/beta 后端状态。
+- `mss-boot-beta` 配置可复制 `mss-boot-dev` 形态，但数据库和 Redis 复用 dev 实例时必须使用新库/独立 Redis 空间，避免污染 dev 数据。
 - prod 环境规划为新部署 namespace `mss-boot-prod`：Cloudflare 前端 `https://admin.mss-boot-io.top` 对应 prod 后端，后端只部署打 tag 的版本；prod 数据库、Redis、Secret、外部集成配置应独立于 dev/beta。
 - 当前后端 GitHub 镜像运行时缺少 `Asia/Shanghai` 时区数据，Postgres DSN 在 Kubernetes Secret 中使用 `TimeZone=UTC`；若未来镜像内补齐 tzdata 或嵌入 Go timezone 数据，再评估恢复业务期望时区。
 - `mss-boot-dev` 的运行凭据集中在 Kubernetes Secret `mss-boot-runtime`，文档和记忆中只记录资源名和配置形态，不写入明文密码、Token 或完整 DSN。
