@@ -21,6 +21,10 @@
 - GitHub 站内内容可以继续按维护者授权节奏推进。
 - CSDN、知乎、X、LinkedIn、Reddit、掘金等外部平台发布前，需要维护者在操作当次确认平台与账号。
 
+已发布的 GitHub 站内社区更新：
+
+- https://github.com/mss-boot-io/mss-boot-docs/discussions/41
+
 ## 中文短推
 
 mss-boot 近期社区更新：
