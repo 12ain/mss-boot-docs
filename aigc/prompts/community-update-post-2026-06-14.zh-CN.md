@@ -24,6 +24,74 @@
 已发布的 GitHub 站内社区更新：
 
 - https://github.com/mss-boot-io/mss-boot-docs/discussions/41
+- https://github.com/mss-boot-io/mss-boot-docs/discussions/42
+- https://github.com/mss-boot-io/mss-boot-docs/discussions/43
+
+外部平台执行状态：
+
+- 本轮已获得维护者“发布几篇推文到国内外社区”的当次授权。
+- Chrome 可运行，但 Codex Chrome Extension 未安装在插件当前选中的 `Default` profile；扩展安装在 `Profile 6`。
+- 按 Chrome 插件安全规则，不能绕过扩展使用 AppleScript、系统脚本或其它方式代发外部平台内容。
+- 外部平台发布需要维护者将 Codex Chrome Extension 启用到当前选中 profile，或让插件选中已安装扩展且已登录外部平台的 profile。
+
+## 平台化发布稿
+
+### 国内短动态（知乎 / 掘金 / CSDN 动态）
+
+mss-boot 近期社区更新：
+
+后端 `mss-boot v0.7.4` 与前端 `mss-boot-admin-antd v0.7.1` 已发布。本轮重点推进可用性、兼容性和开源治理：admin-antd 安全告警已清零；docs 告警收敛到仅剩 1 个 low；后端补强测试、CI、release 幂等和 lint 质量门禁。
+
+感谢社区贡献者 `@12ain` / Rain：SQLite/MySQL migration 兼容修复、online-session 抽屉 loading、i18n key 与按钮文案优化已经合并。
+
+接下来欢迎参与 review：SQL migration/rollback、前端体验细节、docs/toolchain 安全治理。
+
+项目地址：https://github.com/mss-boot-io
+
+### 国内长帖标题
+
+mss-boot 社区更新：v0.7.4、admin-antd v0.7.1 与安全治理收敛
+
+### X / Twitter
+
+mss-boot update: `mss-boot v0.7.4` and `mss-boot-admin-antd v0.7.1` are out.
+
+This round improves CI, release idempotency, frontend stability, and security governance. Thanks `@12ain` / Rain for migration compatibility and online-session UX fixes.
+
+https://github.com/mss-boot-io
+
+### LinkedIn
+
+mss-boot community update:
+
+We shipped `mss-boot v0.7.4` and `mss-boot-admin-antd v0.7.1`.
+
+This round focused on stability, compatibility, and open-source governance: stronger backend CI and release workflows, frontend blank-screen/first-paint fixes, zero open Dependabot alerts in `mss-boot-admin-antd`, and continued docs/security convergence.
+
+Thanks to `@12ain` / Rain for the SQLite/MySQL migration compatibility fix and online-session UX improvements.
+
+We welcome reviews on SQL migration/rollback behavior, admin frontend UX, docs/toolchain security, and contributor onboarding.
+
+GitHub: https://github.com/mss-boot-io
+
+### Reddit / Hacker News 说明稿
+
+Title: mss-boot v0.7.4 and admin-antd v0.7.1: CI, security governance, and community fixes
+
+Body:
+
+mss-boot is an open-source backend/admin stack. We recently shipped `mss-boot v0.7.4` and `mss-boot-admin-antd v0.7.1`.
+
+The latest round focused on:
+
+- Backend CI, tests, release workflow idempotency, and lint gates.
+- Frontend fixes for stale-token blank screens and standalone first paint.
+- Security governance: zero open Dependabot alerts in `mss-boot-admin-antd`.
+- Community contributions: SQLite/MySQL migration compatibility and online-session UX fixes from `@12ain` / Rain.
+
+We are looking for feedback on SQL migration/rollback behavior, admin frontend UX, and contributor onboarding.
+
+GitHub: https://github.com/mss-boot-io
 
 ## 中文短推
 
