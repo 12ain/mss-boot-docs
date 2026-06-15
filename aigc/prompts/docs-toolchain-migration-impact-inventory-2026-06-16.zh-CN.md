@@ -205,6 +205,14 @@ routes = [
 - npm 依赖: 每周更新，分组 minor/patch
 - GitHub Actions: 每周更新，分组
 
+### 其他自动化工作流（非 docs 构建相关）
+以下工作流不参与 docs 构建/部署链路，迁移时无需改动，仅作完整记录：
+- `.github/workflows/pr-guard.yml` — PR 校验/拦截（合并前检查，与 CI 链路相关，迁移后需确认仍通过）
+- `.github/workflows/copilot-setup-steps.yml` — Copilot 环境初始化步骤
+- `.github/workflows/issue-triage.yml` — Issue 自动分流
+- `.github/workflows/release-draft.yml` — Release 草稿生成
+- `.github/workflows/weekly-digest.yml` — 每周摘要
+
 ## 8. 验证命令 (Verification Commands)
 
 ### 本地开发
@@ -281,7 +289,8 @@ tar -czvf dist.tar.gz dist
 
 ```
 .dumirc.ts              # dumi 主配置
-.dumi/favicon.ico       # 站点图标
+.dumi/favicon.ico       # 站点 favicon（dumi 主题用）
+public/favicon.ico      # public 目录 favicon（构建直接拷贝到 dist 根）
 package.json            # 脚本 + pnpm overrides
 pnpm-lock.yaml          # 依赖锁定 (lockfileVersion 9.0)
 wrangler.toml           # Cloudflare 部署配置
@@ -297,9 +306,14 @@ tsconfig.json           # TypeScript 配置
 .github/workflows/codeql.yml     # CodeQL 安全扫描
 .github/workflows/docs-drift.yml # 文档漂移检测
 .github/workflows/scorecard.yml  # OpenSSF Scorecard
+.github/workflows/pr-guard.yml   # PR 校验/拦截
+.github/workflows/copilot-setup-steps.yml # Copilot 环境初始化
+.github/workflows/issue-triage.yml # Issue 自动分流
+.github/workflows/release-draft.yml # Release 草稿生成
+.github/workflows/weekly-digest.yml # 每周摘要
 .github/dependabot.yml           # 依赖更新自动化
 docs/                   # 54 个 Markdown 文档文件
-public/                 # 静态资源
+public/                 # 静态资源 (favicon.ico, images/*.jpg 等)
 aigc/                   # AI 生成文档 (非构建产物)
 ```
 
@@ -342,7 +356,7 @@ aigc/                   # AI 生成文档 (非构建产物)
 
 ```
 docs/
-├── admin/          # 37 个文件 - 管理后台相关文档
+├── admin/          # 36 个文件 - 管理后台相关文档
 ├── aigc/           # 1 个文件 - AIGC 相关文档
 ├── coding/         # 4 个文件 - 编码相关文档
 ├── devops/         # 5 个文件 - DevOps 相关文档
